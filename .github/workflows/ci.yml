@@ -3,10 +3,8 @@ name: C/C++ CI
 on: [push]
 
 jobs:
-  build:
-
+  Ubuntu:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: configure
