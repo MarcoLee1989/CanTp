@@ -5,10 +5,16 @@ on: [push]
 jobs:
   Ubuntu:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.5, 3.6, 3.7]
     steps:
     - uses: actions/checkout@v1
     - name: configure
-      run: mkdir build && cd build && cmake .. -G "Unix Makefiles"
+      run: |
+        mkdir build
+        cd build
+        cmake .. -G "Unix Makefiles"
     - name: build CanTp library
       run: cd build && make CanTp
     - name: build CanTp post-build configuration library
